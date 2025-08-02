@@ -4,7 +4,7 @@ import { initGame } from "./js/game.mjs";
 import path from "path";
 import fs from "node:fs/promises";
 import { getGameResourceLocalPath } from "./js/common.mjs";
-import { GetStatusAsync } from "../../tickettoride-backend-common-js/store/game-resources.mjs";
+import { GetStatusAsync } from "../tickettoride-backend-common-js/store/game-resources.mjs";
 
 const port = process.env.PORT;
 
@@ -23,6 +23,10 @@ app.get("/gamestatus/:id", async (req, res) => {
   const gameId = req.params.id;
 
   const isReady = await GetStatusAsync(gameId);
+
+  if (isReady) {
+    initGame(gameId);
+  }
 
   res.end(isReady.toString());
 });
