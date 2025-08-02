@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { initGame } from "./js/game.mjs";
+import { initGameAsync } from "./js/game.mjs";
 import path from "path";
 import fs from "node:fs/promises";
 import { getGameResourceLocalPath } from "./js/common.mjs";
@@ -25,7 +25,7 @@ app.get("/gamestatus/:id", async (req, res) => {
   const isReady = await GetStatusAsync(gameId);
 
   if (isReady) {
-    initGame(gameId);
+    initGameAsync(gameId);
   }
 
   res.end(isReady.toString());

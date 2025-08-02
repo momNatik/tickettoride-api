@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "path";
-import { GameStatus } from "../../tickettoride-backend-common-js/store/game-resources.mjs";
+import { CreateAsync, UpdateOperationAsync, GetStatusAsync } from "../../tickettoride-backend-common-js/store/game-resources.mjs";
 
 import {
   getGameResourcesLocalPath,
@@ -9,9 +9,30 @@ import {
   FileStorePath
 } from "./common.mjs";
 
-export function initGame(id) {
-  createGameResourcesFolder(id);
-  createGameResources(id);
+export async function initGameAsync(id) {
+  // createGameResourcesFolder(id);
+  // createGameResources(id);
+  const game = {
+    id: id,
+    isResourcesReady: false
+  };
+
+  await CreateAsync(game);
+
+  runTimer(id);
+}
+
+function runTimer(id) {
+  const timer = setTimeout(async () => {
+    const game = {
+      id: id,
+      isResourcesReady: true
+    };
+
+    await UpdateOperationAsync(game);
+
+    delete timer;
+  }, 4000)
 }
 
 function createGameResourcesFolder(gameId) {
