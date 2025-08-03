@@ -4,7 +4,7 @@ import { getGameResourceLocalPath } from "./common.mjs";
 
 export async function GetGameStatus(req, res) {
   res.setHeader("Content-Type", "text/plain");
-  const gameId = req.params.id;
+  const gameId = req.params.gameId;
 
   const isReady = await GetStatusAsync(gameId);
 
