@@ -1,11 +1,11 @@
 {
   "name": "gameapi",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "server": "node --env-file=.env index.js",
-    "dev": "node --watch --env-file=.env index.js"
+    "server": "node --env-file=.env index.mjs",
+    "dev": "node --watch --env-file=.env index.mjs"
   },
   "author": "",
   "license": "ISC",

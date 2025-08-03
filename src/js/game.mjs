@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "path";
-import { CreateAsync, UpdateOperationAsync, GetStatusAsync } from "../../tickettoride-backend-common-js/store/game-resources.mjs";
+import { CreateAsync, UpdateAsync, GetStatusAsync } from "../../tickettoride-backend-common-js/src/store/game-resources.mjs";
 
 import {
   getGameResourcesLocalPath,
@@ -29,9 +29,9 @@ function runTimer(id) {
       isResourcesReady: true
     };
 
-    await UpdateOperationAsync(game);
+    await UpdateAsync(game);
 
-    delete timer;
+    clearTimeout(timer);
   }, 4000)
 }
 
