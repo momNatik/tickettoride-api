@@ -9,6 +9,6 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use('/games', createProxyMiddleware({ target: process.env.GAME_API_URL, changeOrigin: true }));
+app.use('/games', createProxyMiddleware({ target: process.env.API_URL, changeOrigin: true }));
 
-app.listen(process.env.PORT, () => console.log("Game API waiting for connections..."));
+app.listen(process.env.API_PORT, () => console.log("Game API waiting for connections..."));
