@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "path";
 import { CreateAsync, UpdateAsync, GetStatusAsync } from "../../tickettoride-backend-common-js/src/store/game-resources.mjs";
-
+// DEBUG: remove obsolete code
 import {
   getGameResourcesLocalPath,
   getGameResourceLocalPath,
