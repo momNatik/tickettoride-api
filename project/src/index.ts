@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import LOGGING from "../tickettoride-backend-common/src/logging/log.mjs";
+import LOGGING from "@common/logging/log.js";
 
 LOGGING.ShowStartInfo("API_NAME");
 
